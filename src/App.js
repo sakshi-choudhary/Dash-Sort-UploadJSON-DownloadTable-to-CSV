@@ -30,13 +30,6 @@ const StyledTableCell = withStyles((theme) => ({
   },
 }))(TableCell);
 
-const StyledTableRow = withStyles((theme) => ({
-  root: {
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
-    },
-  },
-}))(TableRow);
 const useStyles1 = makeStyles((theme) => ({
   root: {
     flexShrink: 0,
@@ -320,7 +313,7 @@ const ProductTable = () => {
                     {row.space}
                   </TableCell>
                   <TableCell style={{ width: 160 }} align="right">
-                    {`${row.commissioned}` == "true" ? (
+                    {`${row.commissioned}` === "true" ? (
                       <CheckCircleIcon />
                     ) : (
                       <CancelIcon />
