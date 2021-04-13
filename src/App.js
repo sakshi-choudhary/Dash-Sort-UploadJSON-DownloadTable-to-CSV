@@ -17,6 +17,8 @@ import FirstPageIcon from "@material-ui/icons/FirstPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import LastPageIcon from "@material-ui/icons/LastPage";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import CancelIcon from "@material-ui/icons/Cancel";
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -177,6 +179,8 @@ const ProductTable = () => {
   const classes = useStyles2();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [main, setMain] = useState(true);
+  const [tab2, setTab2] = useState(false);
 
   useEffect(() => {
     axios
@@ -184,37 +188,12 @@ const ProductTable = () => {
         "https://raw.githubusercontent.com/sagarkhan/sagarkhan.github.io/master/data-set.json"
       )
       .then((res) => {
-        console.log(res.data);
-        console.log(res.data.length);
         setProducts(res.data);
       })
       .catch((err) => {
-        console.log(err);
+        alert("Opps! There was some error");
       });
   }, []);
-  const csvReport = {
-    data: products,
-    headers: headers,
-    filename: "ExportedTable.csv",
-  };
-  const arr = [];
-
-  for (var i = 0; i < products.length; i++) {
-    arr.push(
-      createData(
-        `${products[i].name}`,
-        `${products[i].deviceType}`,
-        `${products[i].serial}`,
-        `${products[i].deviceId}`,
-        `${products[i].floor}`,
-        `${products[i].space}`,
-        `${products[i].commissioned ? "yes" : "no"}`
-      )
-    );
-  }
-  const rows = arr.sort((a, b) => (a.name < b.name ? -1 : 1));
-  const emptyRows =
-    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -232,136 +211,214 @@ const ProductTable = () => {
     }
     return sortConfig.key === name ? sortConfig.direction : undefined;
   };
+  const csvReport = {
+    data: products,
+    headers: headers,
+    filename: "ExportedTable.csv",
+  };
+
+  const arr = [];
+
+  for (var i = 0; i < items.length; i++) {
+    arr.push(
+      createData(
+        `${items[i].name}`,
+        `${items[i].deviceType}`,
+        `${items[i].serial}`,
+        `${items[i].deviceId}`,
+        `${items[i].floor}`,
+        `${items[i].space}`,
+        `${items[i].commissioned}`
+      )
+    );
+  }
+  const rows = arr.sort((a, b) => (a.name < b.name ? -1 : 1));
+  const emptyRows =
+    rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
+
   return (
     <>
-      <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="custom pagination table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Device Name</StyledTableCell>
-              <StyledTableCell align="right">Device Type</StyledTableCell>
-              <StyledTableCell align="right">Serial Number</StyledTableCell>
-              <StyledTableCell align="right">Device Id</StyledTableCell>
-              <StyledTableCell align="right">Floor</StyledTableCell>
-              <StyledTableCell align="right">Space</StyledTableCell>
-              <StyledTableCell align="right">Commisioned</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {(rowsPerPage > 0
-              ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              : rows
-            ).map((row) => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
-                <TableCell style={{ width: 160 }} align="right">
-                  {row.deviceType}
-                </TableCell>
-                <TableCell style={{ width: 160 }} align="right">
-                  {row.serial}
-                </TableCell>
-                <TableCell style={{ width: 160 }} align="right">
-                  {row.deviceId}
-                </TableCell>
-                <TableCell style={{ width: 160 }} align="right">
-                  {row.floor}
-                </TableCell>
-                <TableCell style={{ width: 160 }} align="right">
-                  {row.space}
-                </TableCell>
-                <TableCell style={{ width: 160 }} align="right">
-                  {row.commissioned}
-                </TableCell>
-              </TableRow>
-            ))}
+      <div className="justify-center bg-gray-50 flex shadow-md">
+        <div
+          onClick={() => {
+            setMain(true);
+            setTab2(false);
+          }}
+          className={`my-5 mx-3`}
+        >
+          <span
+            className={`${
+              main ? "border-b-2" : ""
+            } text-gray-700  cursor-pointer   py-2 px-5 hover:border-b-2 hover:border-blue-500`}
+          >
+            Overview
+          </span>
+        </div>
+        <div
+          onClick={() => {
+            setMain(false);
+            setTab2(true);
+          }}
+          className={`my-5 mx-3`}
+        >
+          <span
+            className={`${
+              tab2 ? "border-b-2" : ""
+            } text-gray-700 cursor-pointer  py-2 px-5 hover:border-b-2 hover:border-blue-500`}
+          >
+            Safe
+          </span>
+        </div>
+      </div>
+      <div className={`${main ? "block" : "hidden"} mt-5`}>
+        <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="custom pagination table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell
+                  onClick={() => requestSort("name")}
+                  className={getClassNamesFor("name")}
+                >
+                  Device Name
+                </StyledTableCell>
 
-            {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
-                <TableCell colSpan={6} />
-              </TableRow>
-            )}
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[10, 15, 20, { label: "All", value: -1 }]}
-                colSpan={3}
-                count={rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                SelectProps={{
-                  inputProps: { "aria-label": "rows per page" },
-                  native: true,
-                }}
-                onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
-                ActionsComponent={TablePaginationActions}
-              />
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </TableContainer>
-      {/* <table>
-        <caption className="text-3xl text-gray-500 py-2 shadow-lg font-bold">
-          Products
-        </caption>
+                <StyledTableCell align="right">Device Type</StyledTableCell>
 
-        <thead>
-          <tr>
-            <th>
-              <button
-                type="button"
-                onClick={() => requestSort("name")}
-                className={getClassNamesFor("name")}
-              >
-                Name
-              </button>
-            </th>
-            <th>
-              <button
-                type="button"
-                onClick={() => requestSort("serial")}
-                className={getClassNamesFor("serial")}
-              >
-                serial
-              </button>
-            </th>
-            <th>
-              <button
-                type="button"
-                onClick={() => requestSort("floor")}
-                className={getClassNamesFor("floor")}
-              >
-                Floor
-              </button>
-            </th>
-            <th>
-              <button
-                type="button"
-                onClick={() => requestSort("deviceId")}
-                className={getClassNamesFor("deviceId")}
-              >
-                Device ID
-              </button>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((product) => (
-            <tr key={product.deviceId}>
-              <td>{product.name}</td>
-              <td>{product.serial}</td>
-              <td> {product.floor}</td>
-              <td> {product.deviceId}</td>
+                <StyledTableCell align="right">Serial Number</StyledTableCell>
+
+                <StyledTableCell align="right">Device Id</StyledTableCell>
+                <StyledTableCell align="right">Floor</StyledTableCell>
+                <StyledTableCell align="right">Space</StyledTableCell>
+                <StyledTableCell align="right">Commisioned</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {(rowsPerPage > 0
+                ? rows.slice(
+                    page * rowsPerPage,
+                    page * rowsPerPage + rowsPerPage
+                  )
+                : rows
+              ).map((row) => (
+                <TableRow key={row.name}>
+                  <TableCell component="th" scope="row">
+                    {row.name}
+                  </TableCell>
+                  <TableCell style={{ width: 160 }} align="right">
+                    {row.deviceType}
+                  </TableCell>
+                  <TableCell style={{ width: 160 }} align="right">
+                    {row.serial}
+                  </TableCell>
+                  <TableCell style={{ width: 160 }} align="right">
+                    {row.deviceId}
+                  </TableCell>
+                  <TableCell style={{ width: 160 }} align="right">
+                    {row.floor}
+                  </TableCell>
+                  <TableCell style={{ width: 160 }} align="right">
+                    {row.space}
+                  </TableCell>
+                  <TableCell style={{ width: 160 }} align="right">
+                    {`${row.commissioned}` == "true" ? (
+                      <CheckCircleIcon />
+                    ) : (
+                      <CancelIcon />
+                    )}
+                  </TableCell>
+                </TableRow>
+              ))}
+
+              {emptyRows > 0 && (
+                <TableRow style={{ height: 53 * emptyRows }}>
+                  <TableCell colSpan={6} />
+                </TableRow>
+              )}
+            </TableBody>
+            <TableFooter>
+              <TableRow>
+                <TablePagination
+                  rowsPerPageOptions={[10, 15, 20, { label: "All", value: -1 }]}
+                  colSpan={3}
+                  count={rows.length}
+                  rowsPerPage={rowsPerPage}
+                  page={page}
+                  SelectProps={{
+                    inputProps: { "aria-label": "rows per page" },
+                    native: true,
+                  }}
+                  onChangePage={handleChangePage}
+                  onChangeRowsPerPage={handleChangeRowsPerPage}
+                  ActionsComponent={TablePaginationActions}
+                />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </TableContainer>
+        <table className="my-20">
+          <thead>
+            <tr>
+              <th>
+                <button
+                  type="button"
+                  onClick={() => requestSort("name")}
+                  className={getClassNamesFor("name")}
+                >
+                  Name
+                </button>
+              </th>
+              <th>
+                <button
+                  type="button"
+                  onClick={() => requestSort("serial")}
+                  className={getClassNamesFor("serial")}
+                >
+                  serial
+                </button>
+              </th>
+              <th>
+                <button
+                  type="button"
+                  onClick={() => requestSort("floor")}
+                  className={getClassNamesFor("floor")}
+                >
+                  Floor
+                </button>
+              </th>
+              <th>
+                <button
+                  type="button"
+                  onClick={() => requestSort("deviceId")}
+                  className={getClassNamesFor("deviceId")}
+                >
+                  Device ID
+                </button>
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table> */}
-      <button className="flex justify-content-center items-center p-3 bg-blue-400 rounded-lg m-5 text-white font-bold hover:bg-blue-900">
-        <CSVLink {...csvReport}> Export to CSV</CSVLink>
-      </button>
+          </thead>
+          <tbody>
+            {items.map((product) => (
+              <tr key={product.deviceId}>
+                <td>{product.name}</td>
+                <td>{product.serial}</td>
+                <td> {product.floor}</td>
+                <td> {product.deviceId}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <button className="flex justify-content-center items-center p-3 bg-blue-400 rounded-lg m-5 text-white font-bold hover:bg-blue-900">
+          <CSVLink {...csvReport}> Export to CSV</CSVLink>
+        </button>
+      </div>
+
+      <div
+        className={`${
+          tab2 ? "block" : "hidden"
+        } mt-5 flex justify-items-center items-center mx-96 my-44 text-5xl font-extrabold text-pink-400`}
+      >
+        This is Tab2
+      </div>
     </>
   );
 };
