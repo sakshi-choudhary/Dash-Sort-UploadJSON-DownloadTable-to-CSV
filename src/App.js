@@ -42,8 +42,8 @@ const App = () => {
   const [main, setMain] = useState(true);
   const [tab2, setTab2] = useState(false);
 
-  const [data, setData] = React.useState([]);
-  const [skipPageReset, setSkipPageReset] = React.useState(false);
+  const [data, setData] = useState([]);
+  const [skipPageReset, setSkipPageReset] = useState(false);
   React.useEffect(() => {
     axios
       .get(

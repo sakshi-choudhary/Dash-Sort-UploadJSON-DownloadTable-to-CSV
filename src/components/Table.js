@@ -19,7 +19,56 @@ import {
   useTable,
 } from "react-table";
 
-const EnhancedTable = ({ columns, data, skipPageReset }) => {
+const inputStyle = {
+  padding: 0,
+  margin: 0,
+  border: 0,
+  background: "transparent",
+};
+
+const EditableCell = ({
+  value: initialValue,
+  row: { index },
+  column: { id },
+  updateMyData,
+}) => {
+  const [value, setValue] = React.useState(initialValue);
+
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
+
+  React.useEffect(() => {
+    setValue(initialValue);
+  }, [initialValue]);
+
+  return <input style={inputStyle} value={value} onChange={onChange} />;
+};
+
+EditableCell.propTypes = {
+  cell: PropTypes.shape({
+    value: PropTypes.any.isRequired,
+  }),
+  row: PropTypes.shape({
+    index: PropTypes.number.isRequired,
+  }),
+  column: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }),
+  updateMyData: PropTypes.func.isRequired,
+};
+
+const defaultColumn = {
+  Cell: EditableCell,
+};
+
+const EnhancedTable = ({
+  columns,
+  data,
+  setData,
+  updateMyData,
+  skipPageReset,
+}) => {
   const {
     getTableProps,
     headerGroups,
@@ -34,6 +83,7 @@ const EnhancedTable = ({ columns, data, skipPageReset }) => {
     {
       columns,
       data,
+      defaultColumn,
       autoResetPage: !skipPageReset,
     },
     useGlobalFilter,
@@ -127,7 +177,7 @@ const EnhancedTable = ({ columns, data, skipPageReset }) => {
 EnhancedTable.propTypes = {
   columns: PropTypes.array.isRequired,
   data: PropTypes.array.isRequired,
-
+  updateMyData: PropTypes.func.isRequired,
   setData: PropTypes.func.isRequired,
   skipPageReset: PropTypes.bool.isRequired,
 };
