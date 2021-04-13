@@ -3,7 +3,7 @@ import React from "react";
 import GlobalFilter from "./GlobalFilter";
 
 import { makeStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
+
 import Toolbar from "@material-ui/core/Toolbar";
 
 const useToolbarStyles = makeStyles((theme) => ({
@@ -25,15 +25,6 @@ const TableToolbar = (props) => {
       />
     </Toolbar>
   );
-};
-
-TableToolbar.propTypes = {
-  numSelected: PropTypes.number.isRequired,
-  addUserHandler: PropTypes.func.isRequired,
-  deleteUserHandler: PropTypes.func.isRequired,
-  setGlobalFilter: PropTypes.func.isRequired,
-  preGlobalFilteredRows: PropTypes.array.isRequired,
-  globalFilter: PropTypes.string.isRequired,
 };
 
 export default TableToolbar;

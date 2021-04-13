@@ -1,6 +1,5 @@
 import React from "react";
 import MaUTable from "@material-ui/core/Table";
-import PropTypes from "prop-types";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
@@ -43,19 +42,6 @@ const EditableCell = ({
   }, [initialValue]);
 
   return <input style={inputStyle} value={value} onChange={onChange} />;
-};
-
-EditableCell.propTypes = {
-  cell: PropTypes.shape({
-    value: PropTypes.any.isRequired,
-  }),
-  row: PropTypes.shape({
-    index: PropTypes.number.isRequired,
-  }),
-  column: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-  }),
-  updateMyData: PropTypes.func.isRequired,
 };
 
 const defaultColumn = {
@@ -172,14 +158,6 @@ const EnhancedTable = ({
       </MaUTable>
     </TableContainer>
   );
-};
-
-EnhancedTable.propTypes = {
-  columns: PropTypes.array.isRequired,
-  data: PropTypes.array.isRequired,
-  updateMyData: PropTypes.func.isRequired,
-  setData: PropTypes.func.isRequired,
-  skipPageReset: PropTypes.bool.isRequired,
 };
 
 export default EnhancedTable;

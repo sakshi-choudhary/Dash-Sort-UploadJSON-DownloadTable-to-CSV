@@ -2,7 +2,7 @@ import React from "react";
 
 import InputBase from "@material-ui/core/InputBase";
 import { fade, makeStyles } from "@material-ui/core/styles";
-import PropTypes from "prop-types";
+
 import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
@@ -70,12 +70,6 @@ const GlobalFilter = ({
       />
     </div>
   );
-};
-
-GlobalFilter.propTypes = {
-  preGlobalFilteredRows: PropTypes.array.isRequired,
-  globalFilter: PropTypes.string.isRequired,
-  setGlobalFilter: PropTypes.func.isRequired,
 };
 
 export default GlobalFilter;
