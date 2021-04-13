@@ -34,7 +34,7 @@ thead button.ascending::after {
 }
 
 thead button.descending::after {
-  content: "☝️";
+  content: "☝";
   display: inline-block;
   margin-left: 1em;
 }
