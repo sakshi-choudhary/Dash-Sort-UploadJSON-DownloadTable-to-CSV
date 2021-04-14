@@ -77,12 +77,12 @@ const App = () => {
   };
   const headers = [
     { label: "status", key: "status" },
-    { label: "name", key: "name" },
-    { label: "deviceType", key: "deviceType" },
-    { label: "serial", key: "serial" },
-    { label: "deviceId", key: "deviceId" },
-    { label: "space", key: "space" },
-    { label: "commissioned", key: "commissioned" },
+    { label: "Name", key: "name" },
+    { label: "Device Type", key: "deviceType" },
+    { label: "Serial", key: "serial" },
+    { label: "Device Id", key: "deviceId" },
+    { label: "Space", key: "space" },
+    { label: "Commissioned", key: "commissioned" },
   ];
 
   const csvReport = {
