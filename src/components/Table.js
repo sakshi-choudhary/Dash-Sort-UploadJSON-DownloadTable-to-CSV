@@ -119,14 +119,14 @@ const EnhancedTable = ({ columns, data, skipPageReset }) => {
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[
-                5,
                 10,
-                25,
+                15,
+                20,
                 { label: "All", value: data.length },
               ]}
               colSpan={3}
               count={data.length}
-              rowsPerPage={pageSize}
+              rowsPerPage={10}
               page={pageIndex}
               SelectProps={{
                 inputProps: { "aria-label": "rows per page" },

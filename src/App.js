@@ -8,6 +8,10 @@ const App = () => {
   const columns = React.useMemo(
     () => [
       {
+        Header: "Status",
+        accessor: "status",
+      },
+      {
         Header: "Device Name",
         accessor: "name",
       },
@@ -72,6 +76,7 @@ const App = () => {
     );
   };
   const headers = [
+    { label: "status", key: "status" },
     { label: "name", key: "name" },
     { label: "deviceType", key: "deviceType" },
     { label: "serial", key: "serial" },
