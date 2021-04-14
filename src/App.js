@@ -90,7 +90,7 @@ const App = () => {
       <CssBaseline />
       <div className="justify-center bg-gray-50 flex shadow-md">
         <div>
-          <button className="flex justify-content-center items-center p-3 bg-blue-400 rounded-lg mt-2 -ml-44 text-white font-bold hover:bg-blue-900">
+          <button className="flex justify-content-center items-center p-3 bg-blue-400 rounded-lg mt-2 mx-3 text-white font-bold hover:bg-blue-900">
             <CSVLink {...csvReport}> Export to CSV</CSVLink>
           </button>{" "}
         </div>
