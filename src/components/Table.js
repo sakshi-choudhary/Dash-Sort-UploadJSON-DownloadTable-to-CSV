@@ -10,8 +10,7 @@ import TablePaginationActions from "./TablePaginationActions";
 import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import TableToolbar from "./TableToolbar";
-import CheckCircleIcon from "@material-ui/icons/CheckCircle";
-import CancelIcon from "@material-ui/icons/Cancel";
+
 import {
   useGlobalFilter,
   usePagination,
