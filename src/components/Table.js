@@ -47,7 +47,7 @@ const EnhancedTable = ({ columns, data, skipPageReset }) => {
     setPageSize,
     preGlobalFilteredRows,
     setGlobalFilter,
-    state: { pageIndex, pageSize, globalFilter },
+    state: { pageIndex, globalFilter },
   } = useTable(
     {
       columns,
