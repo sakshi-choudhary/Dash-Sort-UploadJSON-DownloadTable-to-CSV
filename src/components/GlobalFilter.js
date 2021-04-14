@@ -13,11 +13,11 @@ const useStyles = makeStyles((theme) => ({
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
-    marginRight: theme.spacing(2),
-    marginLeft: 0,
+    marginLeft: theme.spacing(2),
+    marginRight: 0,
     width: "100%",
     [theme.breakpoints.up("sm")]: {
-      marginLeft: theme.spacing(3),
+      marginRight: theme.spacing(3),
       width: "auto",
     },
   },
@@ -52,22 +52,28 @@ const GlobalFilter = ({
   const count = preGlobalFilteredRows.length;
 
   return (
-    <div className={classes.search}>
-      <div className={classes.searchIcon}>
-        <SearchIcon />
+    <div
+      className={`w-full shadow-xl bg-gray-50 p-5 flex justify-items-center items-center`}
+    >
+      <div>
+        <h2 className="text-2xl font-bold">{count} Devices</h2>
       </div>
-      <InputBase
-        value={globalFilter || ""}
-        onChange={(e) => {
-          setGlobalFilter(e.target.value || undefined);
-        }}
-        placeholder={`${count} records...`}
-        classes={{
-          root: classes.inputRoot,
-          input: classes.inputInput,
-        }}
-        inputProps={{ "aria-label": "search" }}
-      />
+      <div className={classes.search}>
+        <div className={classes.searchIcon}>
+          <SearchIcon />
+        </div>
+        <InputBase
+          value={globalFilter || ""}
+          onChange={(e) => {
+            setGlobalFilter(e.target.value || undefined);
+          }}
+          classes={{
+            root: classes.inputRoot,
+            input: classes.inputInput,
+          }}
+          inputProps={{ "aria-label": "search" }}
+        />
+      </div>
     </div>
   );
 };

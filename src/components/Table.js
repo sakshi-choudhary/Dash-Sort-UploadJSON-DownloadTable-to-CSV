@@ -10,6 +10,8 @@ import TablePaginationActions from "./TablePaginationActions";
 import TableRow from "@material-ui/core/TableRow";
 import TableSortLabel from "@material-ui/core/TableSortLabel";
 import TableToolbar from "./TableToolbar";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import CancelIcon from "@material-ui/icons/Cancel";
 import {
   useGlobalFilter,
   usePagination,
@@ -18,43 +20,25 @@ import {
   useTable,
 } from "react-table";
 
-const inputStyle = {
-  padding: 0,
-  margin: 0,
-  border: 0,
-  background: "transparent",
-};
-
-const EditableCell = ({
-  value: initialValue,
-  row: { index },
-  column: { id },
-  updateMyData,
-}) => {
+const CellE = ({ value: initialValue, row: { index }, column: { id } }) => {
   const [value, setValue] = React.useState(initialValue);
-
-  const onChange = (e) => {
-    setValue(e.target.value);
-  };
 
   React.useEffect(() => {
     setValue(initialValue);
   }, [initialValue]);
 
-  return <input style={inputStyle} value={value} onChange={onChange} />;
+  return (
+    <>
+      <h3>{`${value}`}</h3>
+    </>
+  );
 };
 
 const defaultColumn = {
-  Cell: EditableCell,
+  Cell: CellE,
 };
 
-const EnhancedTable = ({
-  columns,
-  data,
-  setData,
-  updateMyData,
-  skipPageReset,
-}) => {
+const EnhancedTable = ({ columns, data, skipPageReset }) => {
   const {
     getTableProps,
     headerGroups,
