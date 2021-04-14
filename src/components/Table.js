@@ -47,7 +47,7 @@ const EnhancedTable = ({ columns, data, skipPageReset }) => {
     setPageSize,
     preGlobalFilteredRows,
     setGlobalFilter,
-    state: { pageIndex, globalFilter },
+    state: { pageIndex, pageSize, globalFilter },
   } = useTable(
     {
       columns,
@@ -126,7 +126,7 @@ const EnhancedTable = ({ columns, data, skipPageReset }) => {
               ]}
               colSpan={3}
               count={data.length}
-              rowsPerPage={10}
+              rowsPerPage={pageSize}
               page={pageIndex}
               SelectProps={{
                 inputProps: { "aria-label": "rows per page" },
