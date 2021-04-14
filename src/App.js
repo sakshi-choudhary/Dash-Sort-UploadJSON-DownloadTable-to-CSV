@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+import { TextField } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import EnhancedTable from "./components/Table";
 import { CSVLink } from "react-csv";
@@ -48,18 +48,6 @@ const App = () => {
 
   const [data, setData] = useState([]);
   const [skipPageReset, setSkipPageReset] = useState(false);
-  React.useEffect(() => {
-    axios
-      .get(
-        "https://raw.githubusercontent.com/sagarkhan/sagarkhan.github.io/master/data-set.json"
-      )
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => {
-        alert("Opps! There was some error");
-      });
-  }, []);
 
   const updateMyData = (rowIndex, columnId, value) => {
     setSkipPageReset(true);
@@ -132,6 +120,21 @@ const App = () => {
         </div>
       </div>
       <div className={`${main ? "block" : "hidden"} mt-5`}>
+        <form className="mx-10">
+          <TextField
+            rowsMin={5}
+            value={data}
+            onChange={(e) => setData(JSON.parse(e.target.value))}
+            variant="outlined"
+            fullWidth
+            multiline
+            id="feedback"
+            label="Paste JSON here"
+            name="text"
+            rows={10}
+            autoFocus
+          />
+        </form>
         <EnhancedTable
           columns={columns}
           data={data}
