@@ -1,0 +1,802 @@
+[
+  {
+    "status": "warning",
+    "name": "Simulator 1",
+    "deviceType": "View Sense 1",
+    "serial": "7a:f1:a4:f7:60:4a",
+    "deviceId": "f8b1d932ce6b",
+    "floor": "Floor 4",
+    "space": "Space 62377",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 2",
+    "deviceType": "View Sense 2",
+    "serial": "e0:bc:da:6b:0c:d7",
+    "deviceId": "567ad0225d67",
+    "floor": "Floor 9",
+    "space": "Space 59275",
+    "commissioned": true
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 3",
+    "deviceType": "View Sense 3",
+    "serial": "93:cb:8a:8c:19:d1",
+    "deviceId": "b8aebe4b0791",
+    "floor": "Floor 5",
+    "space": "Space 74382",
+    "commissioned": true
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 4",
+    "deviceType": "View Sense 4",
+    "serial": "be:ce:72:3b:69:05",
+    "deviceId": "9d6854ad8965",
+    "floor": "Floor 2",
+    "space": "Space 34018",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 5",
+    "deviceType": "View Sense 5",
+    "serial": "10:34:ae:2f:ba:3b",
+    "deviceId": "b9ccf6c37d4a",
+    "floor": "Floor 9",
+    "space": "Space 45765",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 6",
+    "deviceType": "View Sense 6",
+    "serial": "0c:16:a0:52:4c:0e",
+    "deviceId": "1fa385c5c94e",
+    "floor": "Floor 0",
+    "space": "Space 17103",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 7",
+    "deviceType": "View Sense 7",
+    "serial": "54:f5:69:a8:e0:cc",
+    "deviceId": "a4cec536d30f",
+    "floor": "Floor 6",
+    "space": "Space 20580",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 8",
+    "deviceType": "View Sense 8",
+    "serial": "2f:5c:20:c5:f0:01",
+    "deviceId": "ae40132e5db1",
+    "floor": "Floor 3",
+    "space": "Space 88674",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 9",
+    "deviceType": "View Sense 9",
+    "serial": "e2:d7:ae:09:a5:f0",
+    "deviceId": "a877d5077254",
+    "floor": "Floor 2",
+    "space": "Space 65136",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 10",
+    "deviceType": "View Sense 10",
+    "serial": "03:dd:11:90:90:07",
+    "deviceId": "ae50a358a775",
+    "floor": "Floor 6",
+    "space": "Space 44929",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 11",
+    "deviceType": "View Sense 11",
+    "serial": "2a:3b:3d:98:f6:5d",
+    "deviceId": "a61933f78b1d",
+    "floor": "Floor 2",
+    "space": "Space 86432",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 12",
+    "deviceType": "View Sense 12",
+    "serial": "a2:6a:5f:90:54:95",
+    "deviceId": "87a9aaeb4279",
+    "floor": "Floor 9",
+    "space": "Space 53483",
+    "commissioned": true
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 13",
+    "deviceType": "View Sense 13",
+    "serial": "d9:f4:a1:21:65:dc",
+    "deviceId": "440905c58cd3",
+    "floor": "Floor 6",
+    "space": "Space 82814",
+    "commissioned": false
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 14",
+    "deviceType": "View Sense 14",
+    "serial": "a4:94:95:ef:c3:4f",
+    "deviceId": "193d097e2cd4",
+    "floor": "Floor 6",
+    "space": "Space 16930",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 15",
+    "deviceType": "View Sense 15",
+    "serial": "22:c5:82:37:d1:9b",
+    "deviceId": "34929bdccdd7",
+    "floor": "Floor 9",
+    "space": "Space 84811",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 16",
+    "deviceType": "View Sense 16",
+    "serial": "5e:da:aa:29:cc:b1",
+    "deviceId": "0b134ef6263f",
+    "floor": "Floor 5",
+    "space": "Space 77151",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 17",
+    "deviceType": "View Sense 17",
+    "serial": "c3:cb:92:d7:de:5a",
+    "deviceId": "42405952ce70",
+    "floor": "Floor 8",
+    "space": "Space 38734",
+    "commissioned": false
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 18",
+    "deviceType": "View Sense 18",
+    "serial": "21:50:4a:a4:6c:52",
+    "deviceId": "cbcef105df07",
+    "floor": "Floor 00",
+    "space": "Space 74137",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 19",
+    "deviceType": "View Sense 19",
+    "serial": "89:d2:9a:db:16:47",
+    "deviceId": "cf5157fe42b2",
+    "floor": "Floor 8",
+    "space": "Space 96955",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 20",
+    "deviceType": "View Sense 20",
+    "serial": "30:f4:2c:e5:5d:1e",
+    "deviceId": "b7dabd10df93",
+    "floor": "Floor 2",
+    "space": "Space 31112",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 21",
+    "deviceType": "View Sense 21",
+    "serial": "01:b7:c8:2e:95:48",
+    "deviceId": "0d8fe3aa0672",
+    "floor": "Floor 1",
+    "space": "Space 07463",
+    "commissioned": false
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 22",
+    "deviceType": "View Sense 22",
+    "serial": "71:5c:1c:99:cd:e4",
+    "deviceId": "22cd74d4f3a6",
+    "floor": "Floor 1",
+    "space": "Space 28162",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 23",
+    "deviceType": "View Sense 23",
+    "serial": "12:d2:66:2d:81:dd",
+    "deviceId": "ad4b7ae11f13",
+    "floor": "Floor 8",
+    "space": "Space 01844",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 24",
+    "deviceType": "View Sense 24",
+    "serial": "87:48:0e:f6:e5:7b",
+    "deviceId": "63498306f7aa",
+    "floor": "Floor 3",
+    "space": "Space 03604",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 25",
+    "deviceType": "View Sense 25",
+    "serial": "05:4f:01:3d:ec:48",
+    "deviceId": "f92c6685ef88",
+    "floor": "Floor 4",
+    "space": "Space 76521",
+    "commissioned": false
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 26",
+    "deviceType": "View Sense 26",
+    "serial": "c3:34:70:ec:4e:48",
+    "deviceId": "35fc3fb046bd",
+    "floor": "Floor 4",
+    "space": "Space 45822",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 27",
+    "deviceType": "View Sense 27",
+    "serial": "08:ea:2e:81:c2:d2",
+    "deviceId": "0c02035bdc14",
+    "floor": "Floor 8",
+    "space": "Space 94220",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 28",
+    "deviceType": "View Sense 28",
+    "serial": "dc:07:6f:fb:49:38",
+    "deviceId": "54bab8a61f47",
+    "floor": "Floor 0",
+    "space": "Space 07381",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 29",
+    "deviceType": "View Sense 29",
+    "serial": "09:df:3b:03:04:64",
+    "deviceId": "ac413a542b19",
+    "floor": "Floor 0",
+    "space": "Space 23986",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 30",
+    "deviceType": "View Sense 30",
+    "serial": "3b:a3:44:e5:27:0b",
+    "deviceId": "1f2b11075a3c",
+    "floor": "Floor 9",
+    "space": "Space 57803",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 31",
+    "deviceType": "View Sense 31",
+    "serial": "f9:4d:ac:bf:f0:4b",
+    "deviceId": "57d8f1c8a5e7",
+    "floor": "Floor 7",
+    "space": "Space 75739",
+    "commissioned": true
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 32",
+    "deviceType": "View Sense 32",
+    "serial": "99:02:24:9d:e4:ba",
+    "deviceId": "3cfa32420444",
+    "floor": "Floor 1",
+    "space": "Space 50172",
+    "commissioned": false
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 33",
+    "deviceType": "View Sense 33",
+    "serial": "48:8b:0e:a6:98:ea",
+    "deviceId": "37f239672e85",
+    "floor": "Floor 2",
+    "space": "Space 57073",
+    "commissioned": false
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 34",
+    "deviceType": "View Sense 34",
+    "serial": "5d:4e:2e:63:7d:e6",
+    "deviceId": "6eb2becb3113",
+    "floor": "Floor 2",
+    "space": "Space 24712",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 35",
+    "deviceType": "View Sense 35",
+    "serial": "5e:3f:b1:9e:34:a9",
+    "deviceId": "4ad3061f003d",
+    "floor": "Floor 9",
+    "space": "Space 12061",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 36",
+    "deviceType": "View Sense 36",
+    "serial": "38:c3:40:c6:79:3b",
+    "deviceId": "f7a2ea899ea9",
+    "floor": "Floor 5",
+    "space": "Space 89078",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 37",
+    "deviceType": "View Sense 37",
+    "serial": "40:79:e4:07:00:0e",
+    "deviceId": "38357436654d",
+    "floor": "Floor 3",
+    "space": "Space 31429",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 38",
+    "deviceType": "View Sense 38",
+    "serial": "dd:ca:9e:49:cb:f5",
+    "deviceId": "9d1113796551",
+    "floor": "Floor 4",
+    "space": "Space 03707",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 39",
+    "deviceType": "View Sense 39",
+    "serial": "5b:e2:33:54:9e:56",
+    "deviceId": "ba580ca107fc",
+    "floor": "Floor 8",
+    "space": "Space 44385",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 40",
+    "deviceType": "View Sense 40",
+    "serial": "15:9e:e0:14:bf:49",
+    "deviceId": "4f7f691f7f52",
+    "floor": "Floor 5",
+    "space": "Space 54178",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 41",
+    "deviceType": "View Sense 41",
+    "serial": "31:51:d8:7c:2f:c0",
+    "deviceId": "df9c4317fe1d",
+    "floor": "Floor 5",
+    "space": "Space 78488",
+    "commissioned": true
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 42",
+    "deviceType": "View Sense 42",
+    "serial": "43:b2:d5:75:b0:53",
+    "deviceId": "73ff0089c243",
+    "floor": "Floor 9",
+    "space": "Space 65133",
+    "commissioned": false
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 43",
+    "deviceType": "View Sense 43",
+    "serial": "ec:4a:f1:4f:e0:f2",
+    "deviceId": "8c257c992164",
+    "floor": "Floor 4",
+    "space": "Space 46923",
+    "commissioned": true
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 44",
+    "deviceType": "View Sense 44",
+    "serial": "fd:00:57:4d:57:c1",
+    "deviceId": "59d961ec1897",
+    "floor": "Floor 4",
+    "space": "Space 25212",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 45",
+    "deviceType": "View Sense 45",
+    "serial": "6c:9f:81:94:88:0e",
+    "deviceId": "31ad437ce470",
+    "floor": "Floor 0",
+    "space": "Space 43564",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 46",
+    "deviceType": "View Sense 46",
+    "serial": "00:0a:e9:02:06:88",
+    "deviceId": "5b415a688cd8",
+    "floor": "Floor 6",
+    "space": "Space 51738",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 47",
+    "deviceType": "View Sense 47",
+    "serial": "19:a2:94:b7:cc:ee",
+    "deviceId": "d2648887fc2b",
+    "floor": "Floor 8",
+    "space": "Space 35086",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 48",
+    "deviceType": "View Sense 48",
+    "serial": "73:02:76:20:62:0a",
+    "deviceId": "fc9d92cf8641",
+    "floor": "Floor 7",
+    "space": "Space 12864",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 49",
+    "deviceType": "View Sense 49",
+    "serial": "f9:15:ea:cd:7f:d9",
+    "deviceId": "84290ca2c74e",
+    "floor": "Floor 1",
+    "space": "Space 51132",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 50",
+    "deviceType": "View Sense 50",
+    "serial": "fe:c8:dd:0d:d6:e3",
+    "deviceId": "87b3643d98d7",
+    "floor": "Floor 6",
+    "space": "Space 19939",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 51",
+    "deviceType": "View Sense 51",
+    "serial": "82:61:59:d7:b1:1c",
+    "deviceId": "7c2c0e78b1ae",
+    "floor": "Floor 9",
+    "space": "Space 24120",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 52",
+    "deviceType": "View Sense 52",
+    "serial": "27:46:83:91:81:91",
+    "deviceId": "35c29e91f5a2",
+    "floor": "Floor 3",
+    "space": "Space 95632",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 53",
+    "deviceType": "View Sense 53",
+    "serial": "96:81:4e:fa:9d:f6",
+    "deviceId": "58a1e569a021",
+    "floor": "Floor 4",
+    "space": "Space 59571",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 54",
+    "deviceType": "View Sense 54",
+    "serial": "cf:fa:59:eb:e9:08",
+    "deviceId": "3a31390a0475",
+    "floor": "Floor 4",
+    "space": "Space 53767",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 55",
+    "deviceType": "View Sense 55",
+    "serial": "77:5a:e4:f4:62:9c",
+    "deviceId": "3220751ba7c3",
+    "floor": "Floor 5",
+    "space": "Space 34695",
+    "commissioned": false
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 56",
+    "deviceType": "View Sense 56",
+    "serial": "d8:42:ae:67:ab:51",
+    "deviceId": "792c64de8f06",
+    "floor": "Floor 3",
+    "space": "Space 52436",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 57",
+    "deviceType": "View Sense 57",
+    "serial": "16:07:1a:8e:af:52",
+    "deviceId": "e59fad9c8f20",
+    "floor": "Floor 3",
+    "space": "Space 62946",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 58",
+    "deviceType": "View Sense 58",
+    "serial": "77:d4:16:8d:de:a5",
+    "deviceId": "846d9b924d85",
+    "floor": "Floor 1",
+    "space": "Space 01222",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 59",
+    "deviceType": "View Sense 59",
+    "serial": "be:f5:d3:39:cd:f1",
+    "deviceId": "cb5994c7e308",
+    "floor": "Floor 3",
+    "space": "Space 15016",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 60",
+    "deviceType": "View Sense 60",
+    "serial": "d5:0f:50:8d:68:84",
+    "deviceId": "7fb4be346a22",
+    "floor": "Floor 5",
+    "space": "Space 69614",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 61",
+    "deviceType": "View Sense 61",
+    "serial": "de:cb:ae:59:f2:2b",
+    "deviceId": "c092112c9bff",
+    "floor": "Floor 1",
+    "space": "Space 14580",
+    "commissioned": true
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 62",
+    "deviceType": "View Sense 62",
+    "serial": "29:07:06:3a:2f:fd",
+    "deviceId": "3ec45be023a9",
+    "floor": "Floor 5",
+    "space": "Space 98423",
+    "commissioned": false
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 63",
+    "deviceType": "View Sense 63",
+    "serial": "e3:6f:5c:16:b5:c3",
+    "deviceId": "2116a732b1a5",
+    "floor": "Floor 7",
+    "space": "Space 15194",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 64",
+    "deviceType": "View Sense 64",
+    "serial": "68:4a:c0:42:c8:5f",
+    "deviceId": "21c91b819b5d",
+    "floor": "Floor 0",
+    "space": "Space 92147",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 65",
+    "deviceType": "View Sense 65",
+    "serial": "cd:2b:d7:5d:95:d5",
+    "deviceId": "f3de2ef234ea",
+    "floor": "Floor 2",
+    "space": "Space 21854",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 66",
+    "deviceType": "View Sense 66",
+    "serial": "e4:5a:02:d3:18:57",
+    "deviceId": "9904fb715748",
+    "floor": "Floor 9",
+    "space": "Space 04384",
+    "commissioned": false
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 67",
+    "deviceType": "View Sense 67",
+    "serial": "45:2b:c2:02:d8:05",
+    "deviceId": "eb064e933fba",
+    "floor": "Floor 1",
+    "space": "Space 54194",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 68",
+    "deviceType": "View Sense 68",
+    "serial": "0c:11:d2:e4:73:94",
+    "deviceId": "1b0398b06aa9",
+    "floor": "Floor 6",
+    "space": "Space 99636",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 69",
+    "deviceType": "View Sense 69",
+    "serial": "d4:22:08:8a:5a:8a",
+    "deviceId": "83ae4ff5d483",
+    "floor": "Floor 0",
+    "space": "Space 58849",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 70",
+    "deviceType": "View Sense 70",
+    "serial": "c8:54:47:97:46:9b",
+    "deviceId": "b4b017da49ea",
+    "floor": "Floor 7",
+    "space": "Space 37811",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 71",
+    "deviceType": "View Sense 71",
+    "serial": "f3:d6:17:a4:b8:e5",
+    "deviceId": "cfcc7fd118a8",
+    "floor": "Floor 0",
+    "space": "Space 99637",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 72",
+    "deviceType": "View Sense 72",
+    "serial": "c5:9e:61:aa:21:0a",
+    "deviceId": "01a914313a85",
+    "floor": "Floor 9",
+    "space": "Space 12300",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 73",
+    "deviceType": "View Sense 73",
+    "serial": "41:51:91:fa:0b:50",
+    "deviceId": "c86812209dc1",
+    "floor": "Floor 5",
+    "space": "Space 29956",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 74",
+    "deviceType": "View Sense 74",
+    "serial": "da:88:31:03:ca:08",
+    "deviceId": "09f8d1d15b1b",
+    "floor": "Floor 8",
+    "space": "Space 17951",
+    "commissioned": false
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 75",
+    "deviceType": "View Sense 75",
+    "serial": "9f:0a:4c:c2:fe:fd",
+    "deviceId": "1868994b9bdf",
+    "floor": "Floor 8",
+    "space": "Space 71381",
+    "commissioned": true
+  },
+  {
+    "status": "connected",
+    "name": "Simulator 76",
+    "deviceType": "View Sense 76",
+    "serial": "76:17:5e:79:39:60",
+    "deviceId": "95ee9002323d",
+    "floor": "Floor 8",
+    "space": "Space 37107",
+    "commissioned": true
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 77",
+    "deviceType": "View Sense 77",
+    "serial": "ad:b7:65:3f:bf:20",
+    "deviceId": "a55fa95a8af1",
+    "floor": "Floor 1",
+    "space": "Space 47795",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 78",
+    "deviceType": "View Sense 78",
+    "serial": "3c:31:e2:f6:34:a2",
+    "deviceId": "34ffe62de6c0",
+    "floor": "Floor 5",
+    "space": "Space 08021",
+    "commissioned": true
+  },
+  {
+    "status": "warning",
+    "name": "Simulator 79",
+    "deviceType": "View Sense 79",
+    "serial": "dc:28:6c:8c:01:8f",
+    "deviceId": "18ad5bdf7413",
+    "floor": "Floor 6",
+    "space": "Space 49158",
+    "commissioned": true
+  },
+  {
+    "status": "disconnected",
+    "name": "Simulator 80",
+    "deviceType": "View Sense 80",
+    "serial": "2b:d2:ad:42:c2:a6",
+    "deviceId": "a5599b6be0e3",
+    "floor": "Floor 1",
+    "space": "Space 50655",
+    "commissioned": false
+  }
+]
