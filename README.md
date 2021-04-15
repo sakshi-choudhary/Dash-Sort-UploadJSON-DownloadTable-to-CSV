@@ -5,3 +5,5 @@
 - Sorts the tables column wise
 - Search functionality 
 - Download the table in `.csv` format.
+
+### use `test.json` (provided) file to upload and test. 
