@@ -60,11 +60,6 @@ const App = () => {
     { label: "Commissioned", key: "commissioned" },
   ];
 
-  const csvReport = {
-    data: data,
-    headers: headers,
-    filename: "ExportedTable.csv",
-  };
   let fileReader;
   const handleFileRead = (e) => {
     const content = fileReader.result;
@@ -135,7 +130,14 @@ const App = () => {
           <MenuItem onClick={handleClick}>Upload JSON</MenuItem>
           <MenuItem>
             {" "}
-            <CSVLink {...csvReport}>Download CSV</CSVLink>
+            <CSVLink
+              data={data}
+              target="_blank"
+              filename="Generated_Table"
+              headers={headers}
+            >
+              Download CSV
+            </CSVLink>
           </MenuItem>
         </EnhancedTable>
 
