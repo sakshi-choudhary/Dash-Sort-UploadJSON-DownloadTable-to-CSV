@@ -4,27 +4,9 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import EnhancedTable from "./components/Table";
 import { CSVLink } from "react-csv";
 import MenuItem from "@material-ui/core/MenuItem";
-import { makeStyles } from "@material-ui/core/styles";
-import Modal from "@material-ui/core/Modal";
-import Backdrop from "@material-ui/core/Backdrop";
-import { useSpring, animated } from "react-spring/web.cjs";
-
-const useStyles = makeStyles((theme) => ({
-  modal: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  paper: {
-    backgroundColor: theme.palette.background.paper,
-    border: "2px solid #000",
-    boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3),
-  },
-}));
+import Popover from "@material-ui/core/Popover";
 
 const App = () => {
-  const classes = useStyles();
   const columns = React.useMemo(
     () => [
       {
@@ -63,6 +45,7 @@ const App = () => {
     ],
     []
   );
+
   const [main, setMain] = useState(true);
   const [tab2, setTab2] = useState(false);
   const [data, setData] = useState([]);
@@ -76,30 +59,6 @@ const App = () => {
     { label: "Space", key: "space" },
     { label: "Commissioned", key: "commissioned" },
   ];
-
-  const Fade = React.forwardRef(function Fade(props, ref) {
-    const { in: open, children, onEnter, onExited, ...other } = props;
-    const style = useSpring({
-      from: { opacity: 0 },
-      to: { opacity: open ? 1 : 0 },
-      onStart: () => {
-        if (open && onEnter) {
-          onEnter();
-        }
-      },
-      onRest: () => {
-        if (!open && onExited) {
-          onExited();
-        }
-      },
-    });
-
-    return (
-      <animated.div ref={ref} style={style} {...other}>
-        {children}
-      </animated.div>
-    );
-  });
 
   const csvReport = {
     data: data,
@@ -121,15 +80,20 @@ const App = () => {
     const x = handleFileRead();
     setData(x);
   };
-  const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => {
-    setOpen(true);
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setAnchorEl(null);
   };
+
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
+
   return (
     <div>
       <CssBaseline />
@@ -168,66 +132,66 @@ const App = () => {
       <div className={`${main ? "block" : "hidden"} mt-5`}>
         <h1 className="font-bold text-4xl my-10 mx-5">Device Status</h1>
         <EnhancedTable columns={columns} data={data} setData={setData}>
-          <MenuItem onClick={handleOpen}>Upload JSON</MenuItem>
+          <MenuItem onClick={handleClick}>Upload JSON</MenuItem>
           <MenuItem>
             {" "}
             <CSVLink {...csvReport}>Download CSV</CSVLink>
           </MenuItem>
         </EnhancedTable>
-        <Modal
-          aria-labelledby="spring-modal-title"
-          aria-describedby="spring-modal-description"
-          className={classes.modal}
+
+        <Popover
+          id={id}
           open={open}
+          anchorEl={anchorEl}
           onClose={handleClose}
-          closeAfterTransition
-          BackdropComponent={Backdrop}
-          BackdropProps={{
-            timeout: 500,
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "center",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "center",
           }}
         >
-          <Fade in={open}>
-            <div className={classes.paper}>
-              <form className="mx-10 my-5">
-                <TextField
-                  rowsMin={5}
-                  value={data}
-                  onChange={(e) => setData(JSON.parse(e.target.value))}
-                  variant="outlined"
-                  fullWidth
-                  multiline
-                  id="feedback"
-                  label="Paste JSON here"
-                  name="text"
-                  rows={10}
-                  className="w-full"
-                  autoFocus
-                />
-              </form>
-              <div>
-                <div className="border-3 p-3 m-3 border">
-                  <label>Upload a JSON file</label>
-                  <br />
-                  <input
-                    type="file"
-                    id="file"
-                    accept=".json"
-                    className="m-3"
-                    onChange={(e) => handleFileChosen(e.target.files[0])}
-                  />
-                  <br />
-                  <button
-                    className=" p-3 bg-blue-400 mb-1  rounded-lg mt-2 text-white font-bold hover:bg-blue-900"
-                    onClick={onFileJson}
-                  >
-                    upload
-                  </button>
-                </div>
-              </div>
+          <form className="mx-10 my-5">
+            <TextField
+              rowsMin={5}
+              value={data}
+              onChange={(e) => setData(JSON.parse(e.target.value))}
+              variant="outlined"
+              fullWidth
+              multiline
+              id="feedback"
+              label="Paste JSON here"
+              name="text"
+              rows={10}
+              className="w-full"
+              autoFocus
+            />
+          </form>
+          <div>
+            <div className="border-3 p-3 m-3 border">
+              <label>Upload a JSON file</label>
+              <br />
+              <input
+                type="file"
+                id="file"
+                accept=".json"
+                className="m-3"
+                onChange={(e) => handleFileChosen(e.target.files[0])}
+              />
+              <br />
+              <button
+                className=" p-3 bg-blue-400 mb-1  rounded-lg mt-2 text-white font-bold hover:bg-blue-900"
+                onClick={onFileJson}
+              >
+                upload
+              </button>
             </div>
-          </Fade>
-        </Modal>
+          </div>
+        </Popover>
       </div>
+
       <div
         className={`${
           tab2 ? "block" : "hidden"
