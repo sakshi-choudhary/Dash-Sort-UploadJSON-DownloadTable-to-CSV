@@ -1,3 +1,7 @@
-## React + Tailwind Starter Template
+## Dashboard
 
-CRA doesn't support PostCSS 8. Also since CRA doesn't let you override the PostCSS configuration natively, CRACO is used.
+- Upload a JSON file / Paste JSON in the text box.
+- Table gets rendered
+- Sorts the tables column wise
+- Search functionality 
+- Download the table in `.csv` format.
