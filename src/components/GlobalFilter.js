@@ -54,7 +54,7 @@ const GlobalFilter = ({
 
   return (
     <div
-      className={`w-full shadow-xl bg-gray-100 p-5 flex justify-items-center items-center`}
+      className={`w-full shadow-md bg-gray-100 p-5 flex justify-items-center items-center`}
     >
       <div>
         <h2 className="text-2xl font-bold">{count} Devices</h2>
