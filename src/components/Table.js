@@ -15,6 +15,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import Menu from "@material-ui/core/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
+import CheckCircleIcon from "@material-ui/icons/CheckCircle";
+import ErrorOutlineIcon from "@material-ui/icons/ErrorOutline";
+import StopIcon from "@material-ui/icons/Stop";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import WarningIcon from "@material-ui/icons/Warning";
+
 import {
   useGlobalFilter,
   usePagination,
@@ -35,12 +41,43 @@ const CellE = ({ value: initialValue }) => {
   React.useEffect(() => {
     setValue(initialValue);
   }, [initialValue]);
-
-  return (
-    <>
-      <h3>{`${value}`}</h3>
-    </>
-  );
+  if (value === true) {
+    return (
+      <>
+        <CheckCircleIcon className="text-green-600" />
+      </>
+    );
+  } else if (value === false) {
+    return (
+      <>
+        <ErrorOutlineIcon className="text-red-600" />
+      </>
+    );
+  } else if (value === "warning") {
+    return (
+      <>
+        <WarningIcon className="text-yellow-400" />
+      </>
+    );
+  } else if (value === "connected") {
+    return (
+      <>
+        <FiberManualRecordIcon className="text-green-600" />
+      </>
+    );
+  } else if (value === "disconnected") {
+    return (
+      <>
+        <StopIcon className="text-red-600" />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <h3>{`${value}`}</h3>
+      </>
+    );
+  }
 };
 
 const defaultColumn = {
