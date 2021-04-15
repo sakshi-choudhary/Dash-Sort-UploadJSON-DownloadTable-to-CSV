@@ -143,8 +143,8 @@ const App = () => {
         >
           <span
             className={`${
-              main ? "border-b-2" : ""
-            } text-gray-700  cursor-pointer   py-2 px-5 hover:border-b-2 hover:border-blue-500`}
+              main ? "border-b-2 border-red-500 font-bold" : ""
+            } text-gray-700  cursor-pointer   py-2 px-5 hover:border-b-2 `}
           >
             Overview
           </span>
@@ -158,14 +158,15 @@ const App = () => {
         >
           <span
             className={`${
-              tab2 ? "border-b-2" : ""
-            } text-gray-700 cursor-pointer  py-2 px-5 hover:border-b-2 hover:border-blue-500`}
+              tab2 ? "border-b-2 border-red-500 font-bold" : ""
+            } text-gray-700  cursor-pointer   py-2 px-5 hover:border-b-2 `}
           >
             Safe
           </span>
         </div>
       </div>
       <div className={`${main ? "block" : "hidden"} mt-5`}>
+        <h1 className="font-bold text-4xl my-10 mx-5">Device Status</h1>
         <EnhancedTable columns={columns} data={data} setData={setData}>
           <MenuItem onClick={handleOpen}>Upload JSON</MenuItem>
           <MenuItem>
