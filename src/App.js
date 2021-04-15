@@ -3,8 +3,28 @@ import { TextField } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import EnhancedTable from "./components/Table";
 import { CSVLink } from "react-csv";
+import MenuItem from "@material-ui/core/MenuItem";
+import { makeStyles } from "@material-ui/core/styles";
+import Modal from "@material-ui/core/Modal";
+import Backdrop from "@material-ui/core/Backdrop";
+import { useSpring, animated } from "react-spring/web.cjs";
+
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
 
 const App = () => {
+  const classes = useStyles();
   const columns = React.useMemo(
     () => [
       {
@@ -57,6 +77,30 @@ const App = () => {
     { label: "Commissioned", key: "commissioned" },
   ];
 
+  const Fade = React.forwardRef(function Fade(props, ref) {
+    const { in: open, children, onEnter, onExited, ...other } = props;
+    const style = useSpring({
+      from: { opacity: 0 },
+      to: { opacity: open ? 1 : 0 },
+      onStart: () => {
+        if (open && onEnter) {
+          onEnter();
+        }
+      },
+      onRest: () => {
+        if (!open && onExited) {
+          onExited();
+        }
+      },
+    });
+
+    return (
+      <animated.div ref={ref} style={style} {...other}>
+        {children}
+      </animated.div>
+    );
+  });
+
   const csvReport = {
     data: data,
     headers: headers,
@@ -65,7 +109,6 @@ const App = () => {
   let fileReader;
   const handleFileRead = (e) => {
     const content = fileReader.result;
-    //console.log(content);
     return JSON.parse(content);
   };
 
@@ -78,16 +121,19 @@ const App = () => {
     const x = handleFileRead();
     setData(x);
   };
+  const [open, setOpen] = React.useState(false);
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div>
       <CssBaseline />
-      <div className="justify-center bg-gray-50 flex shadow-md">
-        <div>
-          <button className="flex justify-content-center items-center p-3 bg-blue-400 rounded-lg mt-2 mx-3 text-white font-bold hover:bg-blue-900">
-            <CSVLink {...csvReport}> Export to CSV</CSVLink>
-          </button>{" "}
-        </div>
+      <div className="justify-center bg-gray-50 flex shadow-xl">
         <div
           onClick={() => {
             setMain(true);
@@ -120,46 +166,66 @@ const App = () => {
         </div>
       </div>
       <div className={`${main ? "block" : "hidden"} mt-5`}>
-        <div className="flex md:flex-row flex-col justify-items-center items-center mx-auto">
-          <form className="mx-10">
-            <TextField
-              rowsMin={5}
-              value={data}
-              onChange={(e) => setData(JSON.parse(e.target.value))}
-              variant="outlined"
-              fullWidth
-              multiline
-              id="feedback"
-              label="Paste JSON here"
-              name="text"
-              rows={10}
-              className="w-full"
-              autoFocus
-            />
-          </form>
-          <div>
-            <h1 className="m-2 font-extrabold text-4xl bg-blue-300 w-20">OR</h1>
-            <div className="border-3 p-3 m-3 border">
-              <label>Upload a JSON file</label>
-              <br />
-              <input
-                type="file"
-                id="file"
-                accept=".json"
-                className="m-3"
-                onChange={(e) => handleFileChosen(e.target.files[0])}
-              />
-              <br />
-              <button
-                className=" p-3 bg-blue-400 mb-1  rounded-lg mt-2 text-white font-bold hover:bg-blue-900"
-                onClick={onFileJson}
-              >
-                upload
-              </button>
+        <EnhancedTable columns={columns} data={data} setData={setData}>
+          <MenuItem onClick={handleOpen}>Upload JSON</MenuItem>
+          <MenuItem>
+            {" "}
+            <CSVLink {...csvReport}>Download CSV</CSVLink>
+          </MenuItem>
+        </EnhancedTable>
+        <Modal
+          aria-labelledby="spring-modal-title"
+          aria-describedby="spring-modal-description"
+          className={classes.modal}
+          open={open}
+          onClose={handleClose}
+          closeAfterTransition
+          BackdropComponent={Backdrop}
+          BackdropProps={{
+            timeout: 500,
+          }}
+        >
+          <Fade in={open}>
+            <div className={classes.paper}>
+              <form className="mx-10 my-5">
+                <TextField
+                  rowsMin={5}
+                  value={data}
+                  onChange={(e) => setData(JSON.parse(e.target.value))}
+                  variant="outlined"
+                  fullWidth
+                  multiline
+                  id="feedback"
+                  label="Paste JSON here"
+                  name="text"
+                  rows={10}
+                  className="w-full"
+                  autoFocus
+                />
+              </form>
+              <div>
+                <div className="border-3 p-3 m-3 border">
+                  <label>Upload a JSON file</label>
+                  <br />
+                  <input
+                    type="file"
+                    id="file"
+                    accept=".json"
+                    className="m-3"
+                    onChange={(e) => handleFileChosen(e.target.files[0])}
+                  />
+                  <br />
+                  <button
+                    className=" p-3 bg-blue-400 mb-1  rounded-lg mt-2 text-white font-bold hover:bg-blue-900"
+                    onClick={onFileJson}
+                  >
+                    upload
+                  </button>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-        <EnhancedTable columns={columns} data={data} setData={setData} />
+          </Fade>
+        </Modal>
       </div>
       <div
         className={`${

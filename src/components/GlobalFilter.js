@@ -7,14 +7,15 @@ import SearchIcon from "@material-ui/icons/Search";
 
 const useStyles = makeStyles((theme) => ({
   search: {
-    position: "relative",
+    position: "absolute",
+    right: 70,
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
+    backgroundColor: "#fafafa",
     "&:hover": {
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginLeft: theme.spacing(2),
-    marginRight: 0,
+    marginRight: "15px",
     width: "100%",
     [theme.breakpoints.up("sm")]: {
       marginRight: theme.spacing(3),
@@ -53,7 +54,7 @@ const GlobalFilter = ({
 
   return (
     <div
-      className={`w-full shadow-xl bg-gray-50 p-5 flex justify-items-center items-center`}
+      className={`w-full shadow-xl bg-gray-100 p-5 flex justify-items-center items-center`}
     >
       <div>
         <h2 className="text-2xl font-bold">{count} Devices</h2>
